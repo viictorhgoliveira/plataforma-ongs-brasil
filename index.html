@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plataforma ONGs Brasil</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <!-- ===== CABEÇALHO ===== -->
+  <header>
+    <div class="container-header">
+      <h1 class="logo">Plataforma ONGs Brasil</h1>
+
+      <!-- Botão Hamburguer -->
+      <div id="hamburguer" class="hamburguer">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <nav class="menu-principal">
+        <ul class="menu">
+          <li><a href="index.html" class="ativo">Início</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="cadastro.html">Cadastro</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Sobre a Organização -->
+    <section>
+      <h2>Sobre a Organização</h2>
+      <p>A Plataforma ONGs Brasil conecta voluntários, doadores e organizações sociais em todo o país.</p>
+      <div class="botoes">
+        <a href="cadastro.html" class="btn">Quero Doar</a>
+        <a href="cadastro.html" class="btn voluntario">Ser Voluntário</a>
+      </div>
+    </section>
+
+    <!-- Missão, Visão e Valores -->
+    <section>
+      <h2>Missão, Visão e Valores</h2>
+      <p><strong>Missão:</strong> Apoiar ONGs no desenvolvimento de uma presença digital profissional.</p>
+      <p><strong>Visão:</strong> Tornar-se referência nacional em tecnologia social acessível.</p>
+      <p><strong>Valores:</strong> Transparência, solidariedade e inovação.</p>
+    </section>
+
+    <!-- Histórico -->
+    <section id="historico">
+      <h2>Histórico e Conquistas</h2>
+      <ul>
+        <li>2017 — Primeiro projeto em parceria com escolas</li>
+        <li>2019 — 5.000 refeições entregues</li>
+        <li>2022 — Plataforma lançada para conectar voluntários</li>
+      </ul>
+    </section>
+
+    <!-- Equipe -->
+    <section id="equipe">
+      <h2>Nossa Equipe</h2>
+      <div class="cards-equipe">
+        <article class="card-equipe">
+          <img src="imagens/fundador.jpg" alt="Foto do fundador Victor Hugo">
+          <h3>Victor Hugo</h3>
+          <p>Diretor de Projetos</p>
+        </article>
+      </div>
+    </section>
+    <!-- ===== TRANSPARÊNCIA / DOCUMENTOS ===== -->
+<section id="transparencia" class="span-12">
+  <h2>Transparência</h2>
+  <p>Disponibilizamos relatórios e prestação de contas da nossa organização:</p>
+  <ul class="docs">
+    <li><a href="documento/relatorio-transparencia.pdf" target="_blank">Relatórios Anuais</a></li>
+  </ul>
+</section>
+
+
+    <!-- Projetos e Resultados -->
+    <section>
+      <h2>Projetos e Resultados</h2>
+      <table class="tabela-projetos">
+        <thead>
+          <tr>
+            <th>Projeto</th>
+            <th>Ano</th>
+            <th>Voluntários</th>
+            <th>Valor Arrecadado (R$)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Projeto">Kit Escolar</td>
+            <td data-label="Ano">2022</td>
+            <td data-label="Voluntários">120</td>
+            <td data-label="Valor Arrecadado (R$)">15.000</td>
+          </tr>
+          <tr>
+            <td data-label="Projeto">Meio Ambiente</td>
+            <td data-label="Ano">2023</td>
+            <td data-label="Voluntários">200</td>
+            <td data-label="Valor Arrecadado (R$)">25.000</td>
+          </tr>
+          <tr>
+            <td data-label="Projeto">Educação</td>
+            <td data-label="Ano">2024</td>
+            <td data-label="Voluntários">300</td>
+            <td data-label="Valor Arrecadado (R$)">45.000</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Newsletter -->
+    <section>
+      <h3>Assine nossa Newsletter</h3>
+      <form id="form-newsletter">
+        <label for="email-newsletter">E-mail:</label>
+        <input type="email" id="email-newsletter" name="email" placeholder="Digite seu e-mail" required>
+        <button type="submit">Assinar</button>
+      </form>
+      <p class="mensagem-sucesso" style="display:none;">Obrigado por se inscrever!</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Plataforma ONG Brasil - Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    // Menu hamburguer
+    const hamburguer = document.getElementById('hamburguer');
+    const menu = document.querySelector('.menu');
+
+    hamburguer.addEventListener('click', () => {
+      hamburguer.classList.toggle('ativo');
+      menu.classList.toggle('ativo');
+    });
+
+    // Newsletter simples
+    const form = document.getElementById('form-newsletter');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      document.querySelector('.mensagem-sucesso').style.display = 'block';
+      form.reset();
+    });
+  </script>
+</body>
+</html>
