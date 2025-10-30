@@ -373,8 +373,24 @@ footer {
 /* ==========================
    IMAGENS - ABA PROJETOS
 ========================== */
-.tabela-projetos img,
-#projetos img {
-    width: 100%;        /* ocupa toda a largura disponível */
-    max-width: 300px;   /* limite máximo para celular */
-    height: auto;       /
+/* ==========================
+   IMAGENS - ABA PROJETOS
+========================== */
+#projetos img,
+.tabela-projetos img {
+    width: 100%;
+    height: 160px;       /* mesmo tamanho dos cards da equipe /
+    object-fit: cover;   
+    border-radius: 6px;  /* borda arredondada igual aos cards */
+    display: block;
+    margin: 1rem 0;      /* espaço acima e abaixo */
+}
+
+/* Responsividade para celular */
+@media (max-width: 768px) {
+    #projetos img,
+    .tabela-projetos img {
+        height: 140px;    /* um pouco menor em telas pequenas */
+    }
+}
+
