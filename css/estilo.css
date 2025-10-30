@@ -37,7 +37,7 @@ body {
   background-color: var(--cor-neutra-2);
   color: var(--cor-neutra-4);
   line-height: 1.6;
-  scroll-padding-top: 80px; /* espaço para menu fixo */
+  scroll-padding-top: 80px;
 }
 
 /* ==========================
@@ -72,10 +72,6 @@ nav ul {
   gap: var(--esp-2);
 }
 
-nav li {
-  position: relative;
-}
-
 nav a {
   text-decoration: none;
   color: var(--cor-neutra-1);
@@ -89,7 +85,7 @@ nav a.ativo {
   color: var(--cor-destaque);
 }
 
-/* Submenu dropdown */
+/* Submenu */
 .submenu {
   display: none;
   position: absolute;
@@ -115,7 +111,7 @@ nav a.ativo {
   background: var(--cor-terciaria);
 }
 
-/* Menu hambúrguer (mobile) */
+/* Menu hambúrguer */
 .hamburguer {
   display: none;
   flex-direction: column;
@@ -161,34 +157,75 @@ main p {
 }
 
 /* ==========================
-   SEÇÕES ESPECÍFICAS
+   BOTÕES
 ========================== */
-.secao-botoes {
+.btn,
+button,
+input[type="submit"],
+input[type="button"] {
+  background: var(--cor-secundaria);
+  color: var(--cor-neutra-1);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+  background-color: var(--cor-terciaria);
+}
+
+/* ==========================
+   SEÇÕES DE PROJETOS
+========================== */
+.lista-projetos {
   display: flex;
-  gap: 16px;
   flex-wrap: wrap;
-  margin-top: 16px;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem 0;
 }
 
-.secao-botoes .btn {
-  flex: 1 1 150px; /* largura mínima de 150px, cresce conforme necessário */
+.projeto {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+  padding: 1rem;
+  max-width: 320px;
+  margin: 0 auto;
 }
 
-/* Seção projetos */
-.card-projeto {
-  position: relative;
-  margin-bottom: 24px;
-}
-
+.projeto img,
 .card-projeto img {
-  max-width: 100%;
-  height: auto;
+  width: 220px;
+  height: 220px;           /* 🔲 QUADRADO */
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 1rem auto;
   display: block;
-  border-radius: 8px;
 }
 
-.card-projeto .btn {
-  margin-top: 12px;
+.botoes {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.btn.doar {
+  background-color: var(--cor-secundaria);
+}
+
+.btn.voluntario {
+  background-color: var(--cor-terciaria);
 }
 
 /* ==========================
@@ -222,31 +259,6 @@ form textarea {
 }
 
 /* ==========================
-   BOTÕES
-========================== */
-.btn,
-button,
-input[type="submit"],
-input[type="button"] {
-  background: var(--cor-secundaria);
-  color: var(--cor-neutra-1);
-  border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.btn:hover,
-button:hover,
-input[type="submit"]:hover,
-input[type="button"]:hover {
-  background-color: var(--cor-terciaria);
-}
-
-/* ==========================
    RODAPÉ
 ========================== */
 footer {
@@ -267,253 +279,6 @@ footer {
   }
 
   nav ul {
-    position: absolute;
-    top: 70px;
-    right: 0;
-    background: var(--cor-primaria);
-    flex-direction: column;
-    width: 100%;
-    display: none;
-  }
-
-  nav ul.ativo {
-    display: flex;
-  }
-
-  nav li a {
-    text-align: center;
-    padding: var(--esp-3);
-    border-top: 1px solid var(--cor-secundaria);
-  }
-
-  .secao-botoes {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  main h2 {
-    font-size: var(--fs-lg);
-  }
-
-  form {
-    padding: var(--esp-2);
-  }
-}
-/* ==========================
-   BOTÕES: CORREÇÃO DEFINITIVA
-========================== */
-.secao-botoes {
-  display: flex;
-  flex-wrap: wrap;       
-  gap: 16px;             
-  justify-content: flex-start; 
-  margin-top: 16px;
-}
-
-.secao-botoes .btn {
-  flex: 1 1 200px;       
-  max-width: 48%;        
-
-/* Ajuste responsivo para mobile 
-@media (max-width: 480px) {
-  .secao-botoes .btn {
-    flex: 1 1 100%;      /
-    max-width: 100%;
-  }
-}
-
-/* ==========================
-   MENU HAMBÚRGUER - MOBILE
-========================== */
-@media (max-width: 768px) {
-  .menu {
-    position: fixed;      /* fixa o menu na tela ao rolar */
-    top: 0;
-    right: 0;
-    height: 100vh;        /* ocupa toda a altura da tela */
-    background: var(--cor-primaria);
-    flex-direction: column;
-    width: 70%;           /* ocupa 70% da tela */
-    display: none;
-    padding-top: 70px;    /* afasta do topo do header */
-    z-index: 10000;       /* garante que fique acima de tudo */
-    overflow-y: auto;     /* permite scroll interno se houver muitos itens */
-  }
-
-  .menu.ativo {
-    display: flex;
-  }
-
-  .menu li a {
-    text-align: center;
-    padding: var(--esp-3);
-    border-top: 1px solid var(--cor-secundaria);
-  }
-}
-
-/* ==========================
-   IMAGENS PROJETOS
-========================== */
-.tabela-projetos img,
-.projetos img {
-  width: 100%;
-  max-width: 600%;     
-  height: auto;        
-  display: block;
-  margin: 0 auto var(--esp-2); 
-
-
-.card-projeto img {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 6px;
-}
-/* ==========================
-   IMAGENS - ABA PROJETOS
-========================== */
-/* ==========================
-   IMAGENS - ABA PROJETOS
-========================== */
-#projetos img,
-.tabela-projetos img {
-    width: 100%;
-    height: 160px;       /* mesmo tamanho dos cards da equipe /
-    object-fit: cover;   
-    border-radius: 6px;  /* borda arredondada igual aos cards */
-    display: block;
-    margin: 1rem 0;      /* espaço acima e abaixo */
-}
-
-/* Responsividade para celular */
-@media (max-width: 768px) {
-    #projetos img,
-    .tabela-projetos img {
-        height: 140px;    /* um pouco menor em telas pequenas */
-    }
-}
-/* ==========================
-   IMAGENS - ABA PROJETOS
-========================== */
-/* ==========================
-   IMAGENS - PROJETOS
-========================== */
-.card-projeto img,
-.projeto img,
-.tabela-projetos img {
-  width: 100%;           /* ocupa toda a largura do contêiner */
-  height: auto;          /* mantém proporção */
-  max-width: 100%;       /* evita ultrapassar o limite do card */
-  border-radius: 10px;   /* cantos arredondados */
-  object-fit: cover;     /* corta suavemente, sem deformar */
-  display: block;
-  margin: 1rem auto;
-}
-
-/* Ajuste para os cards de projeto */
-.projeto {
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  text-align: center;
-  padding: 1rem;
-  max-width: 320px;
-  margin: 0 auto;
-}
-
-/* ======= RESPONSIVO ======= */
-@media (max-width: 768px) {
-  .lista-projetos {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .projeto {
-    width: 90%;
-    max-width: 360px;
-  }
-
-  .projeto img,
-  .card-projeto img {
-    width: 100%;
-    height: auto;         /* mantém proporção */
-    max-width: 100%;
-  }
-}
-
-/* ==============================
-   AJUSTES ESPECÍFICOS - PÁGINA PROJETOS
-============================== */
-
-.lista-projetos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  padding: 2rem 0;
-}
-
-.projeto {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  padding: 1.5rem;
-  max-width: 320px;
-  text-align: center;
-}
-
-.projeto img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover; /* mantém o enquadramento */
-  border-radius: 10px;
-  margin-bottom: 1rem;
-}
-
-.botoes {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-top: 1rem;
-}
-
-.btn {
-  padding: 0.7rem 1.2rem;
-  border-radius: 8px;
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s ease;
-}
-
-.btn.doar {
-  background-color: var(--cor-secundaria);
-}
-
-.btn.voluntario {
-  background-color: var(--cor-terciaria);
-}
-
-.btn:hover {
-  opacity: 0.9;
-}
-
-/* ===============================
-   CORREÇÃO DO MENU MOBILE
-=============================== */
-@media (max-width: 768px) {
-  header {
-    position: fixed;
-    width: 100%;
-  }
-
-  body {
-    padding-top: 70px; /* espaço p/ menu fixo */
-  }
-
-  nav ul {
     position: fixed;
     top: 60px;
     left: 0;
@@ -528,15 +293,32 @@ footer {
     display: flex;
   }
 
+  nav li a {
+    text-align: center;
+    padding: var(--esp-3);
+    border-top: 1px solid var(--cor-secundaria);
+  }
+
+  main h2 {
+    font-size: var(--fs-lg);
+  }
+
+  form {
+    padding: var(--esp-2);
+  }
+
+  /* ====== Imagens no celular ====== */
+  .projeto img,
+  .card-projeto img {
+    width: 160px;
+    height: 160px;       /* 🔲 QUADRADO MOBILE */
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
   .projeto {
     width: 90%;
     max-width: 340px;
-    margin: auto;
-  }
-
-  .projeto img {
-    height: 180px;
-    object-fit: cover;
   }
 
   .botoes {
@@ -544,3 +326,4 @@ footer {
     gap: 0.75rem;
   }
 }
+
