@@ -514,4 +514,76 @@ footer {
     gap: 0.75rem;
   }
 }
+   /* ======= AJUSTE DE IMAGENS NA ABA PROJETOS ======= */
+
+.lista-projetos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.projeto {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 1rem;
+  max-width: 320px; /* limita o tamanho do card */
+}
+
+.projeto img {
+  width: 100%;
+  max-width: 220px; /* tamanho ideal das imagens */
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 0 auto 1rem;
+  display: block;
+}
+
+/* Botões lado a lado e responsivos */
+.projeto .botoes {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #fff;
+}
+
+.btn.doar {
+  background-color: #28a745;
+}
+
+.btn.voluntario {
+  background-color: #007bff;
+}
+
+/* ======= MOBILE ======= */
+@media (max-width: 480px) {
+  .lista-projetos {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .projeto {
+    max-width: 90%; /* mantém margens nas laterais */
+  }
+
+  .projeto img {
+    max-width: 180px;
+    height: 180px;
+  }
+}
+
 
