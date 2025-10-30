@@ -393,4 +393,23 @@ footer {
         height: 140px;    /* um pouco menor em telas pequenas */
     }
 }
+/* ==========================
+   IMAGENS - ABA PROJETOS
+========================== */
+.card-projeto img {
+    width: 200px;        /* largura fixa */
+    height: 160px;       /* altura fixa, mesma proporção dos cards equipe */
+    object-fit: cover;   /* mantém a imagem centralizada e recortada */
+    border-radius: 6px;
+    display: block;
+    margin: 1rem auto;   /* centraliza a imagem com espaçamento */
+}
+
+/* Responsividade para celular */
+@media (max-width: 768px) {
+    .card-projeto img {
+        width: 140px;    /* menor em telas pequenas */
+        height: 140px;   /* quadrada para celular */
+    }
+}
 
