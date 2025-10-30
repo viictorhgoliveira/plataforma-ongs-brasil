@@ -299,3 +299,26 @@ footer {
     padding: var(--esp-2);
   }
 }
+/* ==========================
+   BOTÕES: CORREÇÃO DEFINITIVA
+========================== */
+.secao-botoes {
+  display: flex;
+  flex-wrap: wrap;       
+  gap: 16px;             
+  justify-content: flex-start; 
+  margin-top: 16px;
+}
+
+.secao-botoes .btn {
+  flex: 1 1 200px;       
+  max-width: 48%;        
+
+/* Ajuste responsivo para mobile 
+@media (max-width: 480px) {
+  .secao-botoes .btn {
+    flex: 1 1 100%;      /
+    max-width: 100%;
+  }
+}
+
