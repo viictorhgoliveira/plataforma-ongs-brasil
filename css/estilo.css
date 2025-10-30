@@ -2,29 +2,20 @@
    SISTEMA DE DESIGN
 ========================== */
 :root {
-  /* Cores principais */
   --cor-primaria: #117c08;
   --cor-secundaria: #05a929;
   --cor-terciaria: #4caf50;
   --cor-destaque: #f9a825;
-
-  /* Neutras */
   --cor-neutra-1: #ffffff;
   --cor-neutra-2: #f5f5f5;
   --cor-neutra-3: #e0e0e0;
   --cor-neutra-4: #212121;
-
-  /* Tipografia */
   --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-  /* Tamanhos de fonte */
   --fs-xxl: 2.5rem;
   --fs-xl: 2rem;
   --fs-lg: 1.5rem;
   --fs-md: 1rem;
   --fs-sm: 0.875rem;
-
-  /* Espaçamento */
   --esp-1: 8px;
   --esp-2: 16px;
   --esp-3: 24px;
@@ -46,6 +37,7 @@ body {
   background-color: var(--cor-neutra-2);
   color: var(--cor-neutra-4);
   line-height: 1.6;
+  scroll-padding-top: 80px;
 }
 
 /* ==========================
@@ -60,8 +52,7 @@ header {
   z-index: 1000;
 }
 
-header .container,
-header .container-header {
+header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -75,17 +66,13 @@ header h1 {
   color: var(--cor-neutra-1);
 }
 
-.menu {
+nav ul {
   list-style: none;
   display: flex;
   gap: var(--esp-2);
 }
 
-.menu li {
-  position: relative;
-}
-
-.menu a {
+nav a {
   text-decoration: none;
   color: var(--cor-neutra-1);
   font-weight: 500;
@@ -93,13 +80,12 @@ header h1 {
   transition: 0.3s;
 }
 
-.menu a:hover,
-.menu a.ativo {
+nav a:hover,
+nav a.ativo {
   color: var(--cor-destaque);
-  font-weight: 700;
 }
 
-/* Submenu dropdown */
+/* Submenu */
 .submenu {
   display: none;
   position: absolute;
@@ -125,7 +111,7 @@ header h1 {
   background: var(--cor-terciaria);
 }
 
-/* Menu hambúrguer (mobile) */
+/* Menu hambúrguer */
 .hamburguer {
   display: none;
   flex-direction: column;
@@ -171,84 +157,75 @@ main p {
 }
 
 /* ==========================
-   SEÇÕES ESPECÍFICAS
+   BOTÕES
 ========================== */
-main section {
-  background: var(--cor-neutra-1);
-  padding: var(--esp-3);
-  border-radius: 10px;
-  margin-bottom: var(--esp-4);
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+.btn,
+button,
+input[type="submit"],
+input[type="button"] {
+  background: var(--cor-secundaria);
+  color: var(--cor-neutra-1);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+  font-weight: 600;
 }
 
-#historico, #equipe, #transparencia {
-  margin: var(--esp-3) 0;
-  padding: var(--esp-2);
-  background: var(--cor-neutra-1);
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,.06);
-}
-
-/* Equipe */
-.cards-equipe {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-.card-equipe {
-  width: 200px;
-  background: var(--cor-neutra-2);
-  padding: 0.75rem;
-  border-radius: 8px;
-  text-align: center;
-}
-.card-equipe img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 6px;
+.btn:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+  background-color: var(--cor-terciaria);
 }
 
 /* ==========================
-   TABELAS
+   SEÇÕES DE PROJETOS
 ========================== */
-.tabela-projetos, .tabela-crescimento {
-  width: 100%;
-  border-collapse: collapse;
-  margin: var(--esp-3) 0;
-  background: var(--cor-neutra-1);
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  animation: aparecer 0.6s ease-in-out;
+.lista-projetos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem 0;
 }
 
-.tabela-projetos th, .tabela-projetos td,
-.tabela-crescimento th, .tabela-crescimento td {
-  padding: 0.75rem 1rem;
+.projeto {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   text-align: center;
-  border-bottom: 1px solid #ddd;
+  padding: 1rem;
+  max-width: 320px;
+  margin: 0 auto;
 }
 
-.tabela-projetos th, .tabela-crescimento th {
-  background: var(--cor-primaria);
-  color: white;
+.projeto img,
+.card-projeto img {
+  width: 220px;
+  height: 220px;           /* 🔲 QUADRADO */
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 1rem auto;
+  display: block;
 }
 
-.tabela-projetos tr:nth-child(even),
-.tabela-crescimento tr:nth-child(even) {
-  background: #f2f2f2;
+.botoes {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
 }
 
-.tabela-projetos tr:hover,
-.tabela-crescimento tr:hover {
-  background: #e8f4fa;
-  transition: background 0.3s;
+.btn.doar {
+  background-color: var(--cor-secundaria);
 }
 
-@keyframes aparecer {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+.btn.voluntario {
+  background-color: var(--cor-terciaria);
 }
 
 /* ==========================
@@ -281,39 +258,6 @@ form textarea {
   font-size: 1rem;
 }
 
-form input:focus,
-form select:focus,
-form textarea:focus {
-  outline: 2px solid var(--cor-destaque);
-  border-color: var(--cor-destaque);
-}
-
-/* ==========================
-   BOTÕES
-========================== */
-.btn,
-button,
-input[type="submit"],
-input[type="button"] {
-  background: var(--cor-secundaria);
-  color: var(--cor-neutra-1);
-  border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.btn:hover,
-button:hover,
-input[type="submit"]:hover,
-input[type="button"]:hover {
-  background-color: var(--cor-terciaria);
-  transform: scale(1.05);
-}
-
 /* ==========================
    RODAPÉ
 ========================== */
@@ -326,16 +270,6 @@ footer {
   font-size: 0.9rem;
 }
 
-footer a {
-  color: var(--cor-destaque);
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-footer a:hover {
-  text-decoration: underline;
-}
-
 /* ==========================
    RESPONSIVIDADE
 ========================== */
@@ -344,32 +278,25 @@ footer a:hover {
     display: flex;
   }
 
-  .menu {
-    position: absolute;
-    top: 70px;
-    right: 0;
+  nav ul {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
     background: var(--cor-primaria);
     flex-direction: column;
-    width: 100%;
     display: none;
+    z-index: 999;
   }
 
-  .menu.ativo {
+  nav ul.ativo {
     display: flex;
   }
 
-  .menu li a {
+  nav li a {
     text-align: center;
     padding: var(--esp-3);
     border-top: 1px solid var(--cor-secundaria);
-  }
-
-  .cards-equipe {
-    justify-content: center;
-  }
-
-  .card-equipe {
-    width: 140px;
   }
 
   main h2 {
@@ -380,85 +307,22 @@ footer a:hover {
     padding: var(--esp-2);
   }
 
-  /* Tabelas responsivas mobile */
-  .tabela-projetos, .tabela-projetos thead, .tabela-projetos tbody, 
-  .tabela-projetos th, .tabela-projetos td, .tabela-projetos tr {
-    display: block;
+  /* ====== Imagens no celular ====== */
+  .projeto img,
+  .card-projeto img {
+    width: 160px;
+    height: 160px;       /* 🔲 QUADRADO MOBILE */
+    object-fit: cover;
+    border-radius: 8px;
   }
 
-  .tabela-projetos tr {
-    margin-bottom: var(--esp-3);
+  .projeto {
+    width: 90%;
+    max-width: 340px;
   }
 
-  .tabela-projetos td {
-    text-align: right;
-    padding-left: 50%;
-    position: relative;
+  .botoes {
+    flex-direction: column;
+    gap: 0.75rem;
   }
-
-  .tabela-projetos td::before {
-    content: attr(data-label);
-    position: absolute;
-    left: 1rem;
-    font-weight: 600;
-    text-align: left;
-  }
-}
-/* ==========================
-   IMAGENS DOS PROJETOS
-========================== */
-.lista-projetos img {
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  border-radius: 8px;
-  display: block;
-}
-/* ==========================
-   LISTA DE PROJETOS
-========================== */
-.lista-projetos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem; /* espaçamento entre os projetos */
-  margin-top: 2rem;
-}
-
-.lista-projetos .projeto {
-  background: var(--cor-neutra-1);
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  display: flex;
-  flex-direction: column;
-}
-
-.lista-projetos .projeto img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 1rem; /* espaço entre a imagem e o conteúdo abaixo */
-}
-/* ==========================
-   DOCUMENTOS / TRANSPARÊNCIA
-========================== */
-.docs {
-  list-style: none;
-  padding-left: 0;
-  margin-top: 1rem;
-}
-
-.docs li {
-  margin-bottom: 0.5rem;
-}
-
-.docs a {
-  color: var(--cor-secundaria);
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.docs a:hover {
-  color: var(--cor-destaque);
-  text-decoration: underline;
 }
