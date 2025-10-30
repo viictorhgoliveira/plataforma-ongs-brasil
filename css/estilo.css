@@ -2,29 +2,20 @@
    SISTEMA DE DESIGN
 ========================== */
 :root {
-  /* Cores principais */
   --cor-primaria: #117c08;
   --cor-secundaria: #05a929;
   --cor-terciaria: #4caf50;
   --cor-destaque: #f9a825;
-
-  /* Neutras */
   --cor-neutra-1: #ffffff;
   --cor-neutra-2: #f5f5f5;
   --cor-neutra-3: #e0e0e0;
   --cor-neutra-4: #212121;
-
-  /* Tipografia */
   --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-  /* Tamanhos de fonte */
   --fs-xxl: 2.5rem;
   --fs-xl: 2rem;
   --fs-lg: 1.5rem;
   --fs-md: 1rem;
   --fs-sm: 0.875rem;
-
-  /* Espaçamento */
   --esp-1: 8px;
   --esp-2: 16px;
   --esp-3: 24px;
@@ -46,6 +37,7 @@ body {
   background-color: var(--cor-neutra-2);
   color: var(--cor-neutra-4);
   line-height: 1.6;
+  scroll-padding-top: 80px; /* espaço para menu fixo */
 }
 
 /* ==========================
@@ -60,8 +52,7 @@ header {
   z-index: 1000;
 }
 
-header .container,
-header .container-header {
+header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -75,17 +66,17 @@ header h1 {
   color: var(--cor-neutra-1);
 }
 
-.menu {
+nav ul {
   list-style: none;
   display: flex;
   gap: var(--esp-2);
 }
 
-.menu li {
+nav li {
   position: relative;
 }
 
-.menu a {
+nav a {
   text-decoration: none;
   color: var(--cor-neutra-1);
   font-weight: 500;
@@ -93,10 +84,9 @@ header h1 {
   transition: 0.3s;
 }
 
-.menu a:hover,
-.menu a.ativo {
+nav a:hover,
+nav a.ativo {
   color: var(--cor-destaque);
-  font-weight: 700;
 }
 
 /* Submenu dropdown */
@@ -173,82 +163,32 @@ main p {
 /* ==========================
    SEÇÕES ESPECÍFICAS
 ========================== */
-main section {
-  background: var(--cor-neutra-1);
-  padding: var(--esp-3);
-  border-radius: 10px;
-  margin-bottom: var(--esp-4);
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-
-#historico, #equipe, #transparencia {
-  margin: var(--esp-3) 0;
-  padding: var(--esp-2);
-  background: var(--cor-neutra-1);
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,.06);
-}
-
-/* Equipe */
-.cards-equipe {
+.secao-botoes {
   display: flex;
-  gap: 1rem;
+  gap: 16px;
   flex-wrap: wrap;
+  margin-top: 16px;
 }
-.card-equipe {
-  width: 200px;
-  background: var(--cor-neutra-2);
-  padding: 0.75rem;
+
+.secao-botoes .btn {
+  flex: 1 1 150px; /* largura mínima de 150px, cresce conforme necessário */
+}
+
+/* Seção projetos */
+.card-projeto {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.card-projeto img {
+  max-width: 100%;
+  height: auto;
+  display: block;
   border-radius: 8px;
-  text-align: center;
-}
-.card-equipe img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 6px;
 }
 
-/* ==========================
-   TABELAS
-========================== */
-.tabela-projetos, .tabela-crescimento {
-  width: 100%;
-  border-collapse: collapse;
-  margin: var(--esp-3) 0;
-  background: var(--cor-neutra-1);
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  animation: aparecer 0.6s ease-in-out;
-}
-
-.tabela-projetos th, .tabela-projetos td,
-.tabela-crescimento th, .tabela-crescimento td {
-  padding: 0.75rem 1rem;
-  text-align: center;
-  border-bottom: 1px solid #ddd;
-}
-
-.tabela-projetos th, .tabela-crescimento th {
-  background: var(--cor-primaria);
-  color: white;
-}
-
-.tabela-projetos tr:nth-child(even),
-.tabela-crescimento tr:nth-child(even) {
-  background: #f2f2f2;
-}
-
-.tabela-projetos tr:hover,
-.tabela-crescimento tr:hover {
-  background: #e8f4fa;
-  transition: background 0.3s;
-}
-
-@keyframes aparecer {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+.card-projeto .btn {
+  margin-top: 12px;
 }
 
 /* ==========================
@@ -281,13 +221,6 @@ form textarea {
   font-size: 1rem;
 }
 
-form input:focus,
-form select:focus,
-form textarea:focus {
-  outline: 2px solid var(--cor-destaque);
-  border-color: var(--cor-destaque);
-}
-
 /* ==========================
    BOTÕES
 ========================== */
@@ -301,7 +234,7 @@ input[type="button"] {
   padding: 0.75rem 1.5rem;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
+  transition: background-color 0.3s;
   text-decoration: none;
   font-weight: 600;
 }
@@ -311,7 +244,6 @@ button:hover,
 input[type="submit"]:hover,
 input[type="button"]:hover {
   background-color: var(--cor-terciaria);
-  transform: scale(1.05);
 }
 
 /* ==========================
@@ -326,16 +258,6 @@ footer {
   font-size: 0.9rem;
 }
 
-footer a {
-  color: var(--cor-destaque);
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-footer a:hover {
-  text-decoration: underline;
-}
-
 /* ==========================
    RESPONSIVIDADE
 ========================== */
@@ -344,7 +266,7 @@ footer a:hover {
     display: flex;
   }
 
-  .menu {
+  nav ul {
     position: absolute;
     top: 70px;
     right: 0;
@@ -354,22 +276,19 @@ footer a:hover {
     display: none;
   }
 
-  .menu.ativo {
+  nav ul.ativo {
     display: flex;
   }
 
-  .menu li a {
+  nav li a {
     text-align: center;
     padding: var(--esp-3);
     border-top: 1px solid var(--cor-secundaria);
   }
 
-  .cards-equipe {
-    justify-content: center;
-  }
-
-  .card-equipe {
-    width: 140px;
+  .secao-botoes {
+    flex-direction: column;
+    gap: 12px;
   }
 
   main h2 {
@@ -379,86 +298,4 @@ footer a:hover {
   form {
     padding: var(--esp-2);
   }
-
-  /* Tabelas responsivas mobile */
-  .tabela-projetos, .tabela-projetos thead, .tabela-projetos tbody, 
-  .tabela-projetos th, .tabela-projetos td, .tabela-projetos tr {
-    display: block;
-  }
-
-  .tabela-projetos tr {
-    margin-bottom: var(--esp-3);
-  }
-
-  .tabela-projetos td {
-    text-align: right;
-    padding-left: 50%;
-    position: relative;
-  }
-
-  .tabela-projetos td::before {
-    content: attr(data-label);
-    position: absolute;
-    left: 1rem;
-    font-weight: 600;
-    text-align: left;
-  }
-}
-/* ==========================
-   IMAGENS DOS PROJETOS
-========================== */
-.lista-projetos img {
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  border-radius: 8px;
-  display: block;
-}
-/* ==========================
-   LISTA DE PROJETOS
-========================== */
-.lista-projetos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem; /* espaçamento entre os projetos */
-  margin-top: 2rem;
-}
-
-.lista-projetos .projeto {
-  background: var(--cor-neutra-1);
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  display: flex;
-  flex-direction: column;
-}
-
-.lista-projetos .projeto img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 1rem; /* espaço entre a imagem e o conteúdo abaixo */
-}
-/* ==========================
-   DOCUMENTOS / TRANSPARÊNCIA
-========================== */
-.docs {
-  list-style: none;
-  padding-left: 0;
-  margin-top: 1rem;
-}
-
-.docs li {
-  margin-bottom: 0.5rem;
-}
-
-.docs a {
-  color: var(--cor-secundaria);
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.docs a:hover {
-  color: var(--cor-destaque);
-  text-decoration: underline;
 }
