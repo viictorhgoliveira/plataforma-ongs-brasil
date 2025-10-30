@@ -412,4 +412,106 @@ footer {
         height: 140px;   /* quadrada para celular */
     }
 }
+/* ==============================
+   AJUSTES ESPECÍFICOS - PÁGINA PROJETOS
+============================== */
+
+.lista-projetos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.projeto {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 1.5rem;
+  max-width: 320px;
+  text-align: center;
+}
+
+.projeto img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover; /* mantém o enquadramento */
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.botoes {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.btn {
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn.doar {
+  background-color: var(--cor-secundaria);
+}
+
+.btn.voluntario {
+  background-color: var(--cor-terciaria);
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* ===============================
+   CORREÇÃO DO MENU MOBILE
+=============================== */
+@media (max-width: 768px) {
+  header {
+    position: fixed;
+    width: 100%;
+  }
+
+  body {
+    padding-top: 70px; /* espaço p/ menu fixo */
+  }
+
+  nav ul {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: var(--cor-primaria);
+    flex-direction: column;
+    display: none;
+    z-index: 999;
+  }
+
+  nav ul.ativo {
+    display: flex;
+  }
+
+  .projeto {
+    width: 90%;
+    max-width: 340px;
+    margin: auto;
+  }
+
+  .projeto img {
+    height: 180px;
+    object-fit: cover;
+  }
+
+  .botoes {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
 
