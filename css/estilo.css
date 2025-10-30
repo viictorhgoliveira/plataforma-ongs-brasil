@@ -370,3 +370,11 @@ footer {
   object-fit: cover;
   border-radius: 6px;
 }
+/* ==========================
+   IMAGENS - ABA PROJETOS
+========================== */
+.tabela-projetos img,
+#projetos img {
+    width: 100%;        /* ocupa toda a largura disponível */
+    max-width: 300px;   /* limite máximo para celular */
+    height: auto;       /
